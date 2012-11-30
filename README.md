@@ -31,7 +31,7 @@ following example.
 	\coursename{How to Train Your Dragon}
 	\coursetitle{DRAG-UA.101-001}
 	\author{Jane Doe}
-        \problemset{1}
+	\problemset{1}
 
 Here is an example describing how you would typeset a sample problem (and
 solution).
@@ -58,10 +58,10 @@ By default, each problem is prefixed by the following string.
 	Exercise {major number}.{problem number}.
 
 The major number is initially set to the number of the problem set. To change
-the major number, use the \setmajornumber{} command; to disable it entirely,
-invoke \disablemajornumbering. Problems are automatically numbered
+the major number, use the `\setmajornumber{}` command; to disable it entirely,
+invoke `\disablemajornumbering`. Problems are automatically numbered
 consecutively. In case you wish to set the problem number manually, the
-problem environment accepts an optional parameter, used as follows.
+`problem` environment accepts an optional parameter, used as follows.
 
 	\begin{problem}[5]
 	This is problem five.
