@@ -4,22 +4,7 @@
 % Date:		12/29/2012
 % Contact:	_@adityaramesh.com
 %
-% Introduction
-%
-% This class file, an extension of the article class, is used to typeset problem
-% sets for courses. A heading is inserted at the top of the page that includes
-% the following information: the problem set number, course title, student name,
-% and student email. Additionally, an environment is provided that automatically
-% numbers problems, using the following format:
-%
-%	Exercise {major number}.{problem number}.
-%
-% A fixed amount of vertical spacing is automatically inserted after each
-% exercise. The font is set to Crimson (designed by Sebastian Koch) by default.
-% Some frequently-used packages for typesetting mathematics and producing
-% tables, enumerated lists, and a few other environments, are also included. For
-% a user guide and more detailed documentation, please consult the file
-% README.md.
+% Please consult the README.md file for usage and documentation.
 %
 
 \NeedsTeXFormat{LaTeX2e}
@@ -33,7 +18,7 @@
 \RequirePackage{amsthm}
 \RequirePackage{amssymb}
 \RequirePackage{booktabs}
-\RequirePackage{enumerate}
+\RequirePackage{enumitem}
 \RequirePackage{fontspec}
 \RequirePackage{mathtools}
 \RequirePackage{siunitx}
@@ -107,6 +92,13 @@
 }{\medskip}
 
 \newenvironment{solution}{\noindent\textit{Solution.}}{\medskip}
+
+\newlist{parts}{enumerate}{5}
+\setlist[parts,1]{label=(\alph*),listparindent=\parindent}
+\setlist[parts,2]{label=\arabic*.,listparindent=\parindent}
+\setlist[parts,3]{label=(\alph*),listpartindent=\parindent}
+\setlist[parts,4]{label=\arabic*.,listparindent=\parindent}
+\setlist[parts,5]{label=(\alph*),listparindent=\parindent}
 
 \makeatother
 \endinput
