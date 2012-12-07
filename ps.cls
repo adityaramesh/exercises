@@ -95,9 +95,9 @@
 
 \newlist{parts}{enumerate}{5}
 \setlist[parts,1]{label=(\alph*),listparindent=\parindent}
-\setlist[parts,2]{label=\arabic*.,listparindent=\parindent}
+\setlist[parts,2]{label=\roman*.,listparindent=\parindent}
 \setlist[parts,3]{label=(\alph*),listpartindent=\parindent}
-\setlist[parts,4]{label=\arabic*.,listparindent=\parindent}
+\setlist[parts,4]{label=\roman*.,listparindent=\parindent}
 \setlist[parts,5]{label=(\alph*),listparindent=\parindent}
 
 \makeatother
