@@ -19,19 +19,8 @@
 \RequirePackage{amssymb}
 \RequirePackage{booktabs}
 \RequirePackage{enumitem}
-\RequirePackage{fontspec}
 \RequirePackage{mathtools}
 \RequirePackage{siunitx}
-
-\setmainfont[
-	Path           = /Users/aditya/Library/Fonts/,
-	Extension      = .otf,
-	Ligatures      = TeX,
-	Scale          = MatchLowercase,
-	BoldFont       = Crimson-Bold,
-	ItalicFont     = Crimson-Italic,
-	BoldItalicFont = Crimson-BoldItalic
-]{Crimson-Roman}
 
 \makeatletter
 
