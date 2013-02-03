@@ -6,7 +6,7 @@
 #
 
 install :
-	cp ps.cls $$TEXMFHOME/tex/latex
+	cp ps.cls $(TEXMFHOME)/tex/latex
 
 uninstall :
-	rm $$TEXMFHOME/tex/latex/ps.cls
+	rm $(TEXMFHOME)/tex/latex/ps.cls

@@ -1,5 +1,5 @@
 %
-% File Name:	ps.tex
+% File Name:	ps.cls
 % Author:	Aditya Ramesh
 % Date:		12/29/2012
 % Contact:	_@adityaramesh.com
