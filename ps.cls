@@ -14,13 +14,7 @@
 \ProcessOptions
 
 \LoadClass{article}
-\RequirePackage{amsmath}
-\RequirePackage{amsthm}
-\RequirePackage{amssymb}
-\RequirePackage{booktabs}
 \RequirePackage{enumitem}
-\RequirePackage{mathtools}
-\RequirePackage{siunitx}
 
 \makeatletter
 
@@ -73,11 +67,11 @@
 
 \newenvironment{problem}[1][]{%
 	\ifx\newenvironment#1\newenvironment
+		\noindent\textbf{Exercise \@majornumber\arabic{@problemcounter}.}
+		\stepcounter{@problemcounter}
 	\else
-		\setcounter{@problemcounter}{#1}
+		\noindent\textbf{Exercise #1.}
 	\fi
-	\noindent\textbf{Exercise \@majornumber\arabic{@problemcounter}.}
-	\stepcounter{@problemcounter}
 }{\medskip}
 
 \newenvironment{solution}{\noindent\textit{Solution.}}{\medskip}
