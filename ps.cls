@@ -60,6 +60,10 @@
 	\setcounter{@problemcounter}{1}
 }
 
+\newcommand\setminornumber[1]{
+	\setcounter{@problemcounter}{#1}
+}
+
 \newcommand\disablemajornumbering{%
 	\renewcommand\@majornumber{}
 	\setcounter{@problemcounter}{1}
