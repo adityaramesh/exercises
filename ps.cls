@@ -15,6 +15,7 @@
 
 \LoadClass{article}
 \RequirePackage{enumitem}
+\RequirePackage{marginnote}
 
 \makeatletter
 
@@ -71,14 +72,15 @@
 
 \newenvironment{problem}[1][]{%
 	\ifx\newenvironment#1\newenvironment
-		\noindent\textbf{Exercise \@majornumber\arabic{@problemcounter}.}
+		\reversemarginpar
+		\noindent\marginnote{\textit{Exercise \@majornumber\arabic{@problemcounter}.}}
 		\stepcounter{@problemcounter}
 	\else
 		\noindent\textbf{Exercise #1.}
 	\fi
 }{\medskip}
 
-\newenvironment{solution}{\noindent\textit{Solution.}}{\medskip}
+\newenvironment{solution}{\noindent\reversemarginpar\marginnote{\textit{Solution.}}}{\medskip}
 
 \newlist{parts}{enumerate}{5}
 \setlist[parts,1]{label=(\alph*),listparindent=\parindent}
