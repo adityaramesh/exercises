@@ -6,6 +6,9 @@
 %
 % Please consult the README.md file for usage and documentation.
 %
+% TODO: Make the parts environment place the outermost items flush to the left
+% margin if there is no text at the beginning of the line.
+%
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ps}
@@ -49,7 +52,7 @@
 	\raggedright \@author \hspace{0.05in}
 	\end{tabular}
 	\end{center}
-	\bigskip
+	\par\addvspace{\bigskipamount}
 }
 
 \newcounter{@problemcounter}
@@ -71,16 +74,16 @@
 }
 
 \newenvironment{problem}[1][]{%
-	\ifx\newenvironment#1\newenvironment
-		\reversemarginpar
-		\noindent\marginnote{\textit{Exercise \@majornumber\arabic{@problemcounter}.}}
-		\stepcounter{@problemcounter}
-	\else
-		\noindent\textbf{Exercise #1.}
-	\fi
-}{\medskip}
+	\ifx\newenvironment#1\newenvironment%
+		\reversemarginpar%
+		\noindent\marginnote{\textit{Exercise \@majornumber\arabic{@problemcounter}.}}%
+		\stepcounter{@problemcounter}%
+	\else%
+		\noindent\marginnote{\textit{Exercise #1.}}%
+	\fi%
+}{\par\addvspace{\medskipamount}}
 
-\newenvironment{solution}{\noindent\reversemarginpar\marginnote{\textit{Solution.}}}{\medskip}
+\newenvironment{solution}{\noindent\reversemarginpar\marginnote{\textit{Solution.}}}{\par\addvspace{\medskipamount}}
 
 \newlist{parts}{enumerate}{5}
 \setlist[parts,1]{label=(\alph*),listparindent=\parindent}
@@ -88,6 +91,13 @@
 \setlist[parts,3]{label=(\alph*),listpartindent=\parindent}
 \setlist[parts,4]{label=\roman*.,listparindent=\parindent}
 \setlist[parts,5]{label=(\alph*),listparindent=\parindent}
+
+\newlist{partsnoind}{enumerate}{5}
+\setlist[partsnoind,1]{label=(\alph*),listparindent=\parindent,leftmargin=6mm}
+\setlist[partsnoind,2]{label=\roman*.,listparindent=\parindent}
+\setlist[partsnoind,3]{label=(\alph*),listpartindent=\parindent}
+\setlist[partsnoind,4]{label=\roman*.,listparindent=\parindent}
+\setlist[partsnoind,5]{label=(\alph*),listparindent=\parindent}
 
 \makeatother
 \endinput
