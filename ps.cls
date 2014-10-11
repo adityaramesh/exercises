@@ -52,7 +52,7 @@
 	\raggedright \@author \hspace{0.05in}
 	\end{tabular}
 	\end{center}
-	\par\addvspace{\bigskipamount}
+	\bigskip
 }
 
 \newcounter{@problemcounter}
@@ -76,28 +76,51 @@
 \newenvironment{problem}[1][]{%
 	\ifx\newenvironment#1\newenvironment%
 		\reversemarginpar%
-		\noindent\marginnote{\textit{Exercise \@majornumber\arabic{@problemcounter}.}}%
+		\marginnote{\textit{Exercise \@majornumber\arabic{@problemcounter}.}}%
 		\stepcounter{@problemcounter}%
+		\noindent%
 	\else%
-		\noindent\marginnote{\textit{Exercise #1.}}%
+		\marginnote{\textit{Exercise #1.}}%
+		\noindent%
 	\fi%
-}{\par\addvspace{\medskipamount}}
+}{\medskip}
 
-\newenvironment{solution}{\noindent\reversemarginpar\marginnote{\textit{Solution.}}}{\par\addvspace{\medskipamount}}
+\newenvironment{solution}{%
+	\reversemarginpar\marginnote{\textit{Solution.}}%
+	\noindent%
+}{\medskip}
+
+\newlength{\@partslabelwidth}
+
+\newenvironment{multiproblem}[1][]{%
+	\settowidth{\@partslabelwidth}{(a)}%
+	\ifx\newenvironment#1\newenvironment%
+		\reversemarginpar%
+		\begin{description}[leftmargin=0em, labelwidth=0pt, labelsep=0pt]%
+		\item[\marginnote{\normalfont\textit{Exercise \@majornumber\arabic{@problemcounter}.}}]%
+		\stepcounter{@problemcounter}%
+		\begin{parts}[leftmargin=\@partslabelwidth, labelsep=5pt]%
+	\else%
+		\begin{description}[leftmargin=0em, labelwidth=0pt, labelsep=0pt]%
+		\item[\marginnote{\textit{Exercise #1.}}%
+		\begin{parts}[leftmargin=\@partslabelwidth, labelsep=5pt]%
+	\fi%
+}{\end{parts}\end{description}\medskip}
+
+\newenvironment{multisolution}{%
+	\settowidth{\@partslabelwidth}{(a)}%
+	\reversemarginpar%
+	\begin{description}[leftmargin=0em, labelwidth=0pt, labelsep=0pt]%
+	\item[\marginnote{\normalfont\textit{Solution.}}]%
+	\begin{parts}[leftmargin=\@partslabelwidth, labelsep=5pt]%
+}{\end{parts}\end{description}\medskip}
 
 \newlist{parts}{enumerate}{5}
-\setlist[parts,1]{label=(\alph*),listparindent=\parindent}
-\setlist[parts,2]{label=\roman*.,listparindent=\parindent}
-\setlist[parts,3]{label=(\alph*),listpartindent=\parindent}
-\setlist[parts,4]{label=\roman*.,listparindent=\parindent}
-\setlist[parts,5]{label=(\alph*),listparindent=\parindent}
-
-\newlist{partsnoind}{enumerate}{5}
-\setlist[partsnoind,1]{label=(\alph*),listparindent=\parindent,leftmargin=6mm}
-\setlist[partsnoind,2]{label=\roman*.,listparindent=\parindent}
-\setlist[partsnoind,3]{label=(\alph*),listpartindent=\parindent}
-\setlist[partsnoind,4]{label=\roman*.,listparindent=\parindent}
-\setlist[partsnoind,5]{label=(\alph*),listparindent=\parindent}
+\setlist[parts,1]{label=(\alph*), listparindent=\parindent}
+\setlist[parts,2]{label=\roman*., listparindent=\parindent}
+\setlist[parts,3]{label=(\alph*), listpartindent=\parindent}
+\setlist[parts,4]{label=\roman*., listparindent=\parindent}
+\setlist[parts,5]{label=(\alph*), listparindent=\parindent}
 
 \makeatother
 \endinput
