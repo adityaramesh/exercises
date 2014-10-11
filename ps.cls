@@ -86,8 +86,10 @@
 }{\medskip}
 
 \newenvironment{solution}{%
-	\reversemarginpar\marginnote{\textit{Solution.}}%
+	\reversemarginpar%
+	\marginnote{\textit{Solution.}}%
 	\noindent%
+	\ignorespaces%
 }{\medskip}
 
 \newlength{\@partslabelwidth}
