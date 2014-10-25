@@ -6,7 +6,7 @@
 #
 
 install :
-	cp ps.cls $(TEXMFHOME)/tex/latex
+	cp exercises.sty $(TEXMFHOME)/tex/latex
 
 uninstall :
-	rm $(TEXMFHOME)/tex/latex/ps.cls
+	rm $(TEXMFHOME)/tex/latex/exercises.sty

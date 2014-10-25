@@ -1,0 +1,113 @@
+%
+% File Name: exercises.sty
+% Author:    Aditya Ramesh
+% Date:      12/29/2012
+% Contact:   _@adityaramesh.com
+%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{exercises}
+
+\RequirePackage{enumitem}
+\RequirePackage{marginnote}
+
+\makeatletter
+
+\newcommand{\CourseTitle}[1]{\renewcommand\@CourseTitle{#1}}
+\newcommand{\@CourseTitle}{%
+	\PackageError{exercises}{No course name specified}
+	{Did you use the \noexpand\CourseTitle command?}
+}
+
+\newcommand{\CourseID}[1]{\renewcommand\@CourseID{#1}}
+\newcommand{\@CourseID}{%
+	\PackageError{exercises}{No course title specified}
+	{Did you use the \noexpand\CourseID command?}
+}
+
+\newcommand{\Assignment}[1]{\renewcommand\@Assignment{#1}}
+\newcommand{\@Assignment}{%
+	\PackageError{exercises}{No assignment number specified}
+	{Did you use the \noexpand\Assignment command?}
+}
+
+\newcommand{\MakeAssignmentTitle}{%
+	\begin{center}
+	\LARGE
+	\@CourseID \\
+	\@CourseTitle \\
+	\medskip
+	\large
+	\begin{tabular}{p{2in}@{\hspace{0.2in}}p{2in}}
+	\raggedleft \hspace{0.05in} Assignment \@Assignment &
+	\raggedright \@author \hspace{0.05in}
+	\end{tabular}
+	\end{center}
+	\bigskip
+}
+
+\newcounter{@ExerciseCounter}
+\setcounter{@ExerciseCounter}{1}
+\newcommand{\@MajorNumber}{\@Assignment.}
+
+\newcommand{\SetMajorNumber}[1]{
+	\renewcommand\@MajorNumber{#1.}
+	\setcounter{@ExerciseCounter}{1}
+}
+
+\newcommand{\SetMinorNumber}[1]{
+	\setcounter{@ExerciseCounter}{#1}
+}
+
+\newcommand{\DisableMajorNumbering}{%
+	\renewcommand\@MajorNumber{}
+	\setcounter{@ExerciseCounter}{1}
+}
+
+\newenvironment{Exercise}[1][]{%
+	\ifx\newenvironment#1\newenvironment%
+		\begin{Parts}
+		\Part[\llap{%
+			\textit{Exercise~\@MajorNumber\arabic{@ExerciseCounter}.}%
+			\hskip\marginparsep%
+		}]%
+		\stepcounter{@ExerciseCounter}%
+	\else%
+		\begin{Parts}
+		\Part[\llap{%
+			\textit{Exercise~#1.}%
+			\hskip\marginparsep%
+		}]%
+		\stepcounter{@ExerciseCounter}%
+	\fi%
+}{\end{Parts}}
+
+\newenvironment{Solution}{%
+	\begin{Parts}
+	\Part[\llap{%
+		\textit{Solution.}%
+		\hskip\marginparsep%
+	}]%
+}{\end{Parts}}
+
+\newlength{\@PartsLabelWidth}
+
+\newcommand{\Part}{\item}
+
+\newlist{Parts}{enumerate}{6}
+\setlist[Parts, 1]{wide = 0pt, leftmargin = \labelwidth, labelsep = 0pt, listparindent = \parindent}
+\setlist[Parts, 2]{label = (\alph*), labelsep = 5pt, itemsep = 5pt, listparindent  = \parindent}
+\setlist[Parts, 3]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
+\setlist[Parts, 4]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listpartindent = \parindent}
+\setlist[Parts, 5]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
+\setlist[Parts, 6]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
+
+\newlist{InlineParts}{enumerate}{6}
+\setlist[InlineParts, 1]{wide = 0pt, leftmargin = \labelwidth, label = (\alph*), labelsep = 5pt, itemsep = 5pt, listparindent  = \parindent}
+\setlist[InlineParts, 2]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
+\setlist[InlineParts, 3]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listpartindent = \parindent}
+\setlist[InlineParts, 4]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
+\setlist[InlineParts, 5]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
+
+\makeatother
+\endinput
