@@ -64,7 +64,8 @@
 	\setcounter{@ExerciseCounter}{1}
 }
 
-\newenvironment{Exercise}[1][]{%
+\newenvironment{Exercise}[1][]
+{%
 	\ifx\newenvironment#1\newenvironment%
 		\begin{Parts}
 		\Part[\llap{%
@@ -90,12 +91,15 @@
 	}]%
 }{\end{Parts}}
 
-\newlength{\@PartsLabelWidth}
-
 \newcommand{\Part}{\item}
 
+\newenvironment{InlineSubparts}{%
+	\Part \leavevmode\vspace*{-\dimexpr\baselineskip + \topsep\relax}%
+	\begin{InlineParts}[wide = 10pt, align = right, leftmargin = \dimexpr10pt + \labelwidth + \labelsep\relax]%
+}{\end{InlineParts}}
+
 \newlist{Parts}{enumerate}{6}
-\setlist[Parts, 1]{wide = 0pt, leftmargin = \labelwidth, labelsep = 0pt, listparindent = \parindent}
+\setlist[Parts, 1]{wide = 0pt, labelsep = 0pt}
 \setlist[Parts, 2]{label = (\alph*), labelsep = 5pt, itemsep = 5pt, listparindent  = \parindent}
 \setlist[Parts, 3]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
 \setlist[Parts, 4]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listpartindent = \parindent}
@@ -103,7 +107,7 @@
 \setlist[Parts, 6]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
 
 \newlist{InlineParts}{enumerate}{6}
-\setlist[InlineParts, 1]{wide = 0pt, leftmargin = \labelwidth, label = (\alph*), labelsep = 5pt, itemsep = 5pt, listparindent  = \parindent}
+\setlist[InlineParts, 1]{leftmargin = 10pt, label = (\alph*), labelsep = 5pt, itemsep = 5pt, listparindent = \parindent}
 \setlist[InlineParts, 2]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
 \setlist[InlineParts, 3]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listpartindent = \parindent}
 \setlist[InlineParts, 4]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
