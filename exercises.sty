@@ -36,7 +36,7 @@
 	\LARGE
 	\@CourseID \\
 	\@CourseTitle \\
-	\medskip
+	\vspace{4pt}
 	\large
 	\begin{tabular}{p{2in}@{\hspace{0.2in}}p{2in}}
 	\raggedleft \hspace{0.05in} Assignment \@Assignment &
@@ -95,7 +95,7 @@
 
 \newenvironment{InlineSubparts}{%
 	\Part \leavevmode\vspace*{-\dimexpr\baselineskip + \topsep\relax}%
-	\begin{InlineParts}[wide = 10pt, align = right, leftmargin = \dimexpr10pt + \labelwidth + \labelsep\relax]%
+	\begin{InlineParts}[wide = 15pt, align = right, leftmargin = \dimexpr15pt + \labelwidth + \labelsep\relax]%
 }{\end{InlineParts}}
 
 \newlist{Parts}{enumerate}{6}
@@ -107,7 +107,7 @@
 \setlist[Parts, 6]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
 
 \newlist{InlineParts}{enumerate}{6}
-\setlist[InlineParts, 1]{leftmargin = 10pt, label = (\alph*), labelsep = 5pt, itemsep = 5pt, listparindent = \parindent}
+\setlist[InlineParts, 1]{leftmargin = 15pt, label = (\alph*), labelsep = 5pt, itemsep = 5pt, listparindent = \parindent}
 \setlist[InlineParts, 2]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
 \setlist[InlineParts, 3]{label = (\alph*), labelsep = 5pt, itemsep = 2pt, listpartindent = \parindent}
 \setlist[InlineParts, 4]{label = \roman*., labelsep = 5pt, itemsep = 2pt, listparindent  = \parindent}
